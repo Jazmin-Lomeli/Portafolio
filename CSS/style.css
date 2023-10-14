@@ -1,0 +1,300 @@
+/* Definir una paleta de colores */
+:root {
+  --azulPrimary: #186f65;
+  /*   --azulPrimary: #1D5D9B;*/
+  --azul: #12486B_;
+  --azulClaro: #75c2f6;
+  --amarillo: #f4d160;
+  --cremita: #fbeeac;
+  --blanco: #ffffff;
+  --negro: #212121;
+}
+
+/* Estilos globales  */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /* */ 
+  scroll-snap-type: y mandatory;  /* Hacer scroll por secciones */
+}
+/* 
+  * --> selecciona todos los elementos del html 
+  si la iamgen tiene 400 px de alto y tiene un padding de 20
+    esto hara que la imagen cambie a 440 ya que toma el padding 
+    esto ayuda a que no pase eso 
+*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  background-image: linear-gradient(to top, #c5e3f8 0%, rgb(235, 231, 231) 80%);
+  /* background-image: linear-gradient(to top, var(--azulClaro) 0%, #e61e1e, 100% ); */
+  padding: 0;
+  margin: 0;
+}
+.contenedor {
+  max-width: 110rem; /* Toma 1200 px como maximo, si no el 100% */
+  margin: 0 auto;
+
+  /*
+  Mismo resultado
+  margin: 0 auto 0 auto;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  */
+}
+
+.boton {
+  background-color: var(--azulPrimary);
+  color: var(--blanco);
+  padding: 1rem 4rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase; /* Mayusculas */
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 90%;
+  border: none;
+}
+
+.boton:hover {
+  cursor: pointer;
+  color: black;
+  font-style: italic;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sombra {
+  -webkit-box-shadow: 3px 8px 11px 5px rgba(145, 142, 145, 0.6);
+  -moz-box-shadow: 3px 8px 11px 5px rgba(145, 142, 145, 0.6);
+  box-shadow: 3px 8px 11px 5px rgba(145, 142, 145, 0.6);
+  background-color: var(--blanco);
+  padding: 0.5rem 3rem;
+  margin: 2.5rem auto;
+}
+
+/*  Utiliades */
+.flex {
+  display: flex;
+}
+.alinear-derecha {
+  justify-content: flex-end;
+}
+
+/* 
+    html     font-size: 62.5%;
+    body     font-size: 16px;
+    Hacen que se le saque el mayor probecho a REM 
+    de esta manera  1 rem = 10 px
+*/
+
+/* Tipografia  */
+h1 {
+  font-size: 3.1rem;
+}
+
+h2 {
+  font-size: 2.7rem;
+}
+h3 {
+  font-size: 2.2rem;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.titulo {
+  text-align: center; /* Centrado */
+  /*font-family: 'Young Serif', serif;*/
+  margin: 0.7rem 0;
+}
+
+/* Pixeles ya no se usa
+    Rem --> Relativo al documento 
+  */
+
+.titulo span {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.nav-bg {
+  background-color: var(--azulPrimary);
+}
+.navegacion-Principal {
+  /*background-color: var(--azulPrimary);*/
+  flex-direction: column; /* Mostrar  en horizontal*/
+  display: flex;
+  justify-content: space-around;
+}
+
+.navegacion-Principal a {
+  display: block;
+  text-align: center;
+  font-size: large;
+  color: var(--blanco);
+  text-decoration: none; /* eliminar la linea de abajo */
+  padding: 1.2rem;
+}
+.navegacion-Principal a:hover {
+  background-color: var(--azulClaro);
+  color: #212121;
+}
+
+.hero {
+  background-image: url("../img/hero.jpg");
+  background-repeat: no-repeat; /* no se repita la iamgen */
+  background-size: cover; /* Toma todo el ancho disponible */
+  height: 400px;
+  position: relative;
+}
+.contenido-hero {
+  /* posicionar el contenido en un lugar exacto, el padre debe tner posicion relativa */
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* coordenadas */
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%; /* Tamaño imagen */
+  height: 100%;
+
+  display: flex; /* para centrar el contenido hijo los pone de izq - der */
+  flex-direction: column; /* de arriba hacia abajo */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Secciones para el scroll */
+.habilidades, .navegacion-Principal {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+@media (min-width: 760px) {
+  .habilidades {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* O la cantidad de columnas que desees */
+    column-gap: 1.7rem;
+    text-align: justify;
+ 
+  }
+}
+
+.habilidad .icono {
+  height: 10rem;
+  width: 10rem;
+  background-color: var(--amarillo); /*rgb(78, 148, 133)*/
+  border-radius: 50%; /* redondo */
+  display: flex; /* centrar */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.habilidad {
+  display: flex; /* Centrar contenido */
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ajusta el ancho de las habilidades */
+
+}
+.hanilidad p {
+  text-align: center;
+}
+
+.formulario {
+  background-color: var(--cremita);
+  width: min(60rem, 90%); /* Utilizar el valor mas pequeño, si no el 100%*/
+  margin: 0 auto; /* centrar */
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.formulario fieldset {
+  border: none;
+}
+
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-size: larger;
+  /* color: var(--azulPrimary); */
+}
+
+.contenedor-campos {
+  padding: 0px 1rem;
+}
+
+.campo {
+  margin-bottom: 1.5rem;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: bloc;
+}
+
+.input-text {
+  width: 90%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+  background-color: var(--azulPrimary);
+  margin-bottom: 0;
+  padding: 0.3rem;
+}
+.footer strong{
+  font-style: italic;
+}
+/* MEDIAS QUERIES */
+
+/* solo se coloca lo que va a modificar el diseño segun el tamaño de la pantalla 
+    * Celular  --> 480px
+    * Tablet --> 768px 
+    * Laptop escritorio --> 1140px
+    * Otra --> 1400 
+  
+  */
+
+/* @media (min-width: 480px ){
+    body{
+      background-color: blue;
+    }
+   }
+
+  @media (min-width: 992px ){
+    body{
+      background-color: black;
+    }  }*/
+
+@media (min-width: 480px) {
+  /* las demas propiedades las heereda */
+  .navegacion-Principal {
+    flex-direction: row; /* Hacia abajo */
+  }
+}
+
+/* Boton responsivo */
+@media (min-width: 760px) {
+  .boton {
+    width: auto;
+  }
+}

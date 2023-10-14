@@ -1,0 +1,46 @@
+.habilidad .icono-2 {
+    height: 7rem;
+    width: auto;
+    padding: 1.5rem 1.5rem;
+    background-color: var(--amarillo); /*rgb(78, 148, 133)*/
+    border-radius:  25%; /* redondo */
+    display: flex; /* centrar */
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+  
+  }
+
+.text-center{
+    text-align: justify;
+}
+
+.habilidad .icono-2 svg{
+   /* posicionar el contenido en un lugar exacto, el padre debe tner posicion relativa */
+   position: absolute;
+   /* coordenadas */
+   padding-top: 0.5rem;
+   bottom: 0;
+   left: 10;
+   top: 0;
+   right: 0;
+  
+}
+
+.habilidad .detalles{
+    padding: 5px 10px; /* Ajusta el relleno según tus preferencias */
+    font-size: 14px; /* Tamaño de fuente */
+    background-color:  #186f65; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+.detalles:hover{
+    cursor: pointer;
+    background-color:#1f8b8b;
+    transform: scale(1.1); /* Escala al 110% del tamaño original al pasar el mouse */
+}
